@@ -10,50 +10,85 @@
         body { background-color: #0a0020;
 
         }
-        .div-1 {
+        .div-0 {
             font-family: "Source Code Pro", "Lucida Console", monospace;
             color: white;
             text-align: center;
+        }
+        .parent-1 {
+            height: 30px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .parent-2 {
+            height: 50px;
+            text-align: center;
+        }
+        .div-1 {
+            display: inline-block;
+            height: 20px;
+            width: 100px;
+            margin-right: 5px;
+            font-family: "Source Code Pro", "Lucida Console", monospace;
+            text-align: right;
+            color: white;
         }
         .div-2 {
-            margin: auto;
+            display: inline-block;
+            height: 20px;
+            width: 100px;
+            margin-left: 5px;
             font-family: "Source Code Pro", "Lucida Console", monospace;
-            /*background-color: #000000;*/
-            margin-top: 20px;
-            height: 200px;
-            width: 600px;
-            text-align: center;
-            color: white;
-            padding: 10px;
-        }
-        .linkedinLink:link {
-            color: lime;
-        }
-        .linkedinLink:visited {
+            text-align: left;
             color: white;
         }
-        .linkedinLink:hover {
+        .div-3 {
+            display: inline-block;
+            height: 20px;
+            width: 100px;
+            margin-right: 5px;
+            font-family: "Source Code Pro", "Lucida Console", monospace;
+            text-align: right;
+            color: white;
+        }
+        .div-4 {
+            display: inline-block;
+            height: 20px;
+            width: 100px;
+            margin-left: 5px;
+            font-family: "Source Code Pro", "Lucida Console", monospace;
+            text-align: left;
+            color: white;
+        }
+        .linkedinLink:link, .igLink:link, .youtubeLink, .githubLink {
             color: cyan;
         }
-        .igLink:link {
-            color: lime;
-        }
-        .igLink:visited {
-            color: white;
-        }
-        .igLink:hover {
+        .linkedinLink:visited, .igLink:visited, .youtubeLink:visited, .githubLink:visited {
             color: cyan;
+        }
+        .linkedinLink:hover, .igLink:hover, .youtubeLink:hover, .githubLink:hover {
+            color: yellow;
         }
     </style>
 </head>
 <body>
     <br>
-    <div class="div-1">Rej Averion</div>
-    <div class="div-2">
-        <a class="linkedinLink" href = "https://www.linkedin.com/in/rejaverion/">LinkedIn</a>
-        <a class="igLink" href = "https://www.instagram.com/rejaverion/">Instagram</a>
+    <div class="div-0">Rej Averion</div>
+    <div class="parent-1">
+        <div class="div-1">
+            <a class="linkedinLink" href = "https://www.linkedin.com/in/rejaverion/">LinkedIn</a>
+        </div>
+        <div class="div-2">
+            <a class="igLink" href = "https://www.instagram.com/rejaverion/">Instagram</a>
+        </div>
     </div>
-    <body>
-    </body>
+    <div class="parent-2">
+        <div class="div-3">
+            <a class="githubLink" href = "https://github.com/raverion">GitHub</a>
+        </div>
+        <div class="div-4">
+            <a class="youtubeLink" href = "https://www.youtube.com/@chromicfever4180">Youtube</a>
+        </div>
+    </div>
 </body>
 </html>

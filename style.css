@@ -81,13 +81,13 @@ body {
 textarea {
   font-family: "Source Code Pro", "Lucida Console Thin", monospace;
   color: lime;
-  border: none;
   background-color: black;
   margin-bottom: 30px;
+  border-radius: 10px;
+  resize: none;
 }
 textarea:focus {
-  outline: none !important;
-  box-shadow: 0 0 40px #8cb5e0;
+  outline: none;
 }
 
 #fname {
@@ -98,4 +98,78 @@ textarea:focus {
 
 #fname:focus {
   outline: none !important;
+}
+
+.buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.button1,
+.button2 {
+  display: inline-block;
+  color: black;
+  font-size: 16px;
+  font-family: "Lucida Console", Courier, monospace;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 24px;
+  margin: 5px;
+}
+
+.button1 {
+  background-color: cyan;
+}
+.button2 {
+  background-color: lime;
+}
+
+.button-3,
+.button-4 {
+  appearance: none;
+  border: none;
+  border-radius: 10px;
+  /* box-sizing: border-box; */
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 16px;
+  margin: 2px;
+  margin-top: 10px;
+  min-width: 0;
+  outline: none;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+}
+
+.button-3:disabled,
+.button-4:disabled {
+  pointer-events: none;
+}
+
+.button-3 {
+  background-color: lime;
+}
+.button-4 {
+  background-color: cyan;
+}
+
+.button-3:hover,
+.button-4:hover {
+  background-color: yellow;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-3:active,
+.button-4:active {
+  box-shadow: none;
+  transform: translateY(0);
 }

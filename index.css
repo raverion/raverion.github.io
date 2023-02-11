@@ -1,0 +1,137 @@
+.container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  background-color: #000000;
+}
+.leftwing {
+  top: 0px;
+  left: 0px;
+  width: 49%;
+  bottom: 0px;
+  height: 80%;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  border-color: rgba(120, 120, 120, 0.4);
+  border-style: hidden;
+  border-width: 2px;
+  flex-direction: column;
+}
+.name {
+  top: 0px;
+  color: rgb(255, 255, 255);
+  right: 0px;
+  width: 500px;
+  bottom: 0px;
+  height: 120px;
+  position: absolute;
+  font-size: 90px;
+  margin-top: auto;
+  text-align: right;
+  margin-left: auto;
+  margin-right: var(--dl-space-space-threeunits);
+  margin-bottom: auto;
+}
+.rightwing {
+  top: 0px;
+  right: 0px;
+  width: 49%;
+  bottom: 0px;
+  height: 80%;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  border-color: rgba(120, 120, 120, 0.4);
+  border-style: hidden;
+  border-width: 2px;
+  flex-direction: column;
+}
+.rightwing-subcontainer {
+  top: 0px;
+  flex: 0 0 auto;
+  left: 0px;
+  width: 100%;
+  bottom: 0px;
+  height: 60%;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+}
+.text1-container {
+  top: 0px;
+  flex: 0 0 auto;
+  left: 0px;
+  width: 70%;
+  height: 30%;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  border-color: rgba(120, 120, 120, 0.4);
+  border-style: hidden;
+  border-width: 2px;
+}
+.text1,
+.text2,
+.text3 {
+  top: 0px;
+  left: var(--dl-space-space-sixunits);
+  color: rgb(255, 255, 255);
+  bottom: 0px;
+  height: var(--dl-size-size-small);
+  margin: auto;
+  position: absolute;
+  font-size: 48px;
+}
+.text2-container {
+  top: 0px;
+  flex: 0 0 auto;
+  left: 0px;
+  width: 70%;
+  bottom: 0px;
+  height: 30%;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  border-color: rgba(120, 120, 120, 0.4);
+  border-style: hidden;
+  border-width: 2px;
+}
+.text3-container {
+  flex: 0 0 auto;
+  left: 0px;
+  width: 70%;
+  bottom: 0px;
+  height: 30%;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  border-color: rgba(120, 120, 120, 0.4);
+  border-style: hidden;
+  border-width: 2px;
+}
+.vertical-line {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 2px;
+  bottom: 0px;
+  height: 80%;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  border-color: #ffffff;
+  border-style: solid;
+  border-width: 1px;
+  flex-direction: column;
+  background-color: white;
+}

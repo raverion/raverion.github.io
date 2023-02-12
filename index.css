@@ -1,4 +1,7 @@
-.container {
+body {
+  background-color: black;
+}
+.parent-div {
   width: 100%;
   display: flex;
   overflow: auto;
@@ -28,15 +31,15 @@
   right: 0px;
   width: 500px;
   bottom: 0px;
-  height: 120px;
+  height: 96px;
   position: absolute;
-  font-size: 90px;
+  font-size: 72px;
   margin-top: auto;
   text-align: right;
   margin-left: auto;
   margin-right: 48px;
   margin-bottom: auto;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Century Gothic", monospace;
 }
 .rightwing {
   top: 0px;
@@ -118,7 +121,7 @@
   margin: auto;
   position: absolute;
   font-size: 48px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Century Gothic", monospace;
 }
 .vertical-line {
   top: 0px;

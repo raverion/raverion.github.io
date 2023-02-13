@@ -39,7 +39,7 @@ body {
   margin-left: auto;
   margin-right: 48px;
   margin-bottom: auto;
-  font-family: "Century Gothic", monospace;
+  font-family: "Arial", monospace;
 }
 .rightwing {
   top: 0px;
@@ -115,13 +115,27 @@ body {
 .text3 {
   top: 0px;
   left: 48px;
-  color: rgb(255, 255, 255);
+  color: white;
   bottom: 0px;
-  height: 48px;
+  height: 72px;
+  width: 360px;
   margin: auto;
   position: absolute;
   font-size: 48px;
+  padding-left: 20px;
   font-family: "Century Gothic", monospace;
+}
+.text1:hover {
+  background-color: cyan;
+  color: black;
+}
+.text2:hover {
+  background-color: yellow;
+  color: black;
+}
+.text3:hover {
+  background-color: lime;
+  color: black;
 }
 .vertical-line {
   top: 0px;

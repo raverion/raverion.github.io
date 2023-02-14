@@ -1,16 +1,15 @@
-function getText() {
+function encryptText() {
   const text = document.getElementById("textarea1").value;
-  const key = document.getElementById("fname").value;
-  alert(text + key);
+  const passphrase = document.getElementById("fname").value;
+  const encryptedText = CryptoJS.AES.encrypt(text, passphrase);
+  document.getElementById("textarea1").value = encryptedText;
 }
 
-function setText() {
-  document.getElementById("textarea1").value = "Text decrypted";
-}
+function decryptText() {
+  const text = document.getElementById("textarea1").value;
+  const passphrase = document.getElementById("fname").value;
 
-function getKey() {
-  const message = document.getElementById("textarea1").value;
-  alert(message);
+  const decryptedText = CryptoJS.AES.decrypt(text, passphrase);
+  const decrypted = decryptedText.toString(CryptoJS.enc.Utf8);
+  document.getElementById("textarea1").value = decrypted;
 }
-
-function hashKey() {}

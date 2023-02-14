@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text Cryptor</title>
     <link rel="stylesheet" href="textcryptor.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
   </head>
   <body>
     <script src="textcryptor.js"></script>
@@ -57,7 +58,7 @@
     </div>
     <div class="buttons">
       <button
-        onclick="getText()"
+        onclick="encryptText()"
         class="button-3"
         id="encryptbutton"
         type="button"
@@ -66,7 +67,7 @@
         Encrypt
       </button>
       <button
-        onclick="setText()"
+        onclick="decryptText()"
         class="button-4"
         id="decryptbutton"
         type="button"

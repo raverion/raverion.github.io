@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="textcryptor.css" />
   </head>
   <body>
+    <script src="textcryptor.js"></script>
     <br />
     <div class="div-0">Text Encryptor/Decryptor</div>
     <div class="parent-1">
@@ -41,9 +42,8 @@
         rows="30"
         cols="100"
         autofocus="autofocus"
-      >
-Enter text to encrypt/decrypt...</textarea
-      >
+        placeholder="Enter text to encrypt/decrypt..."
+      ></textarea>
       <form>
         <label class="label-1" for="key">Key:</label><br />
         <input
@@ -56,8 +56,24 @@ Enter text to encrypt/decrypt...</textarea
       </form>
     </div>
     <div class="buttons">
-        <button class="button-3" type="button" role="button">Encrypt</button>
-        <button class="button-4" type="button" role="button">Decrypt</button>
-    </div:>
+      <button
+        onclick="getText()"
+        class="button-3"
+        id="encryptbutton"
+        type="button"
+        role="button"
+      >
+        Encrypt
+      </button>
+      <button
+        onclick="setText()"
+        class="button-4"
+        id="decryptbutton"
+        type="button"
+        role="button"
+      >
+        Decrypt
+      </button>
+    </div>
   </body>
 </html>

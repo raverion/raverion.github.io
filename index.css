@@ -141,9 +141,9 @@ body {
   top: 0px;
   left: 0px;
   right: 0px;
-  width: 2px;
+  width: 0px;
   bottom: 0px;
-  height: 80%;
+  height: 60%;
   margin: auto;
   display: flex;
   position: absolute;

@@ -5,6 +5,8 @@ body {
   font-family: "Source Code Pro", "Lucida Console", monospace;
   color: white;
   text-align: center;
+  font-size: 32px;
+  margin-bottom: 10px;
 }
 .parent-1 {
   height: 30px;
@@ -105,25 +107,8 @@ textarea:focus {
   text-align: center;
 }
 
-.button1,
-.button2 {
-  display: inline-block;
-  color: black;
-  font-size: 16px;
-  font-family: "Lucida Console", Courier, monospace;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 24px;
-  margin: 5px;
-}
-
-.button1 {
-  background-color: cyan;
-}
-.button2 {
-  background-color: lime;
-}
-
+.openFile-button,
+.saveFile-button,
 .button-3,
 .button-4 {
   appearance: none;
@@ -133,11 +118,12 @@ textarea:focus {
   color: black;
   cursor: pointer;
   display: inline-block;
-  font-family: "Lucida Console", Courier, monospace;
+  font-family: "Source Code Pro", "Lucida Console Thin", monospace;
   font-size: 16px;
   margin: 2px;
   margin-top: 10px;
   min-width: 0;
+  width: 128px;
   outline: none;
   padding: 10px 24px;
   text-align: center;
@@ -149,6 +135,8 @@ textarea:focus {
   will-change: transform;
 }
 
+.openFile-button:disabled,
+.saveFile-button:disabled,
 .button-3:disabled,
 .button-4:disabled {
   pointer-events: none;
@@ -161,15 +149,31 @@ textarea:focus {
   background-color: cyan;
 }
 
-.button-3:hover,
-.button-4:hover {
-  background-color: yellow;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-  transform: translateY(-2px);
+.openFile-button,
+.saveFile-button {
+  background-color: #0f0022;
+  color: white;
+  border: 0.5px solid white;
 }
 
+.openFile-button:hover,
+.saveFile-button:hover,
+.button-3:hover,
+.button-4:hover {
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+  color: black;
+}
+
+.openFile-button:active,
+.saveFile-button:active,
 .button-3:active,
 .button-4:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+.File-button-container {
+  text-align: center;
 }

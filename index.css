@@ -114,15 +114,16 @@ body {
 .text2,
 .text3 {
   top: 0px;
-  left: 48px;
-  color: white;
   bottom: 0px;
+  left: 48px;
+  padding-top: 10px;
+  padding-left: 20px;
+  color: white;
   height: 72px;
   width: 360px;
   margin: auto;
   position: absolute;
   font-size: 48px;
-  padding-left: 20px;
   font-family: "Source Code Pro", monospace;
 }
 .text1:hover {

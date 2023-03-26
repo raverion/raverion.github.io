@@ -3,6 +3,7 @@ function encryptText() {
   const passphrase = document.getElementById("fname").value;
   const encryptedText = CryptoJS.AES.encrypt(text, passphrase);
   document.getElementById("textarea1").value = encryptedText;
+  document.getElementById("fname").value = ""; // clear input field
 }
 
 function decryptText() {
@@ -12,6 +13,7 @@ function decryptText() {
   const decryptedText = CryptoJS.AES.decrypt(text, passphrase);
   const decrypted = decryptedText.toString(CryptoJS.enc.Utf8);
   document.getElementById("textarea1").value = decrypted;
+  document.getElementById("fname").value = ""; // clear input field
 }
 
 function openFile() {

@@ -1,15 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.a73314b8.css",
-    "main.js": "/static/js/main.358fc895.js",
-    "static/js/787.9911eb12.chunk.js": "/static/js/787.9911eb12.chunk.js",
+    "main.css": "/static/css/main.f8267827.css",
+    "main.js": "/static/js/main.ff10ffc6.js",
+    "static/js/498.c4ce2352.chunk.js": "/static/js/498.c4ce2352.chunk.js",
+    "static/js/703.1851afa4.chunk.js": "/static/js/703.1851afa4.chunk.js",
+    "static/js/573.cce33b37.chunk.js": "/static/js/573.cce33b37.chunk.js",
+    "static/js/787.baed138b.chunk.js": "/static/js/787.baed138b.chunk.js",
+    "static/media/Footer2.png": "/static/media/Footer2.badb9f41ec3adc6df628.png",
+    "static/media/MFTS_logo.png": "/static/media/MFTS_logo.45d45e35f2b43d883f6b.png",
     "index.html": "/index.html",
-    "main.a73314b8.css.map": "/static/css/main.a73314b8.css.map",
-    "main.358fc895.js.map": "/static/js/main.358fc895.js.map",
-    "787.9911eb12.chunk.js.map": "/static/js/787.9911eb12.chunk.js.map"
+    "main.f8267827.css.map": "/static/css/main.f8267827.css.map",
+    "main.ff10ffc6.js.map": "/static/js/main.ff10ffc6.js.map",
+    "498.c4ce2352.chunk.js.map": "/static/js/498.c4ce2352.chunk.js.map",
+    "703.1851afa4.chunk.js.map": "/static/js/703.1851afa4.chunk.js.map",
+    "573.cce33b37.chunk.js.map": "/static/js/573.cce33b37.chunk.js.map",
+    "787.baed138b.chunk.js.map": "/static/js/787.baed138b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a73314b8.css",
-    "static/js/main.358fc895.js"
+    "static/css/main.f8267827.css",
+    "static/js/main.ff10ffc6.js"
   ]
 }

@@ -1,0 +1,104 @@
+body {
+  /* background-color: ; */
+}
+
+.App {
+}
+
+.LoadDataButton {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.SaveDataButton {
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.dropdownLabel,
+#dropdown {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+.labels,
+.inputField {
+  margin: 2px;
+}
+
+.labels {
+  margin-left: 20px;
+  text-align: left;
+  min-width: 200px;
+  display: inline-block;
+}
+
+.inputField {
+  min-width: 500px;
+}
+
+.separator {
+  height: 5px;
+}
+
+.particulars_label {
+  margin-top: 20px;
+  margin-left: 20px;
+  text-align: left;
+  display: inline-block;
+}
+.particulars_note,
+.materials_note {
+  font-size: 12px;
+  margin-left: 20px;
+}
+
+.quantityField,
+.rateField,
+.totalField {
+  margin-left: 10px;
+  width: 100px;
+}
+
+.descriptionField {
+  margin-left: 17px;
+  min-width: 500px;
+}
+
+.unitField {
+  margin-left: 10px;
+  width: 50px;
+}
+
+.remarksField {
+  margin-left: 10px;
+  min-width: 300px;
+}
+
+.descriptionFieldB {
+  margin-left: 17px;
+  min-width: 822px;
+}
+.totalFieldB {
+  margin-left: 10px;
+  width: 100px;
+}
+.remarksFieldB {
+  margin-left: 10px;
+  min-width: 416px;
+}
+
+.RemoveFieldButton {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.AddItemButton {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.GenerateButton {
+  margin-top: 30px;
+  margin-left: 20px;
+}

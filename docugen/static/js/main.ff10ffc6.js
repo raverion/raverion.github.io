@@ -33977,11 +33977,13 @@
       },
       317: function (t, e, n) {
         "use strict";
-        t.exports = n.p + "static/media/Footer2.badb9f41ec3adc6df628.png";
+        t.exports =
+          n.p + "docugen/static/media/Footer2.badb9f41ec3adc6df628.png";
       },
       1658: function (t, e, n) {
         "use strict";
-        t.exports = n.p + "static/media/MFTS_logo.45d45e35f2b43d883f6b.png";
+        t.exports =
+          n.p + "docugen/static/media/MFTS_logo.45d45e35f2b43d883f6b.png";
       },
       907: function (t, e, n) {
         "use strict";

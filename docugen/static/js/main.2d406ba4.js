@@ -1,4 +1,4 @@
-/*! For license information please see main.ff10ffc6.js.LICENSE.txt */
+/*! For license information please see main.2d406ba4.js.LICENSE.txt */
 !(function () {
   var t = {
       1052: function (t, e, n) {
@@ -33977,13 +33977,11 @@
       },
       317: function (t, e, n) {
         "use strict";
-        t.exports =
-          n.p + "docugen/static/media/Footer2.badb9f41ec3adc6df628.png";
+        t.exports = n.p + "docugen/static/media/Footer2.badb9f41ec3adc6df628.png";
       },
       1658: function (t, e, n) {
         "use strict";
-        t.exports =
-          n.p + "docugen/static/media/MFTS_logo.45d45e35f2b43d883f6b.png";
+        t.exports = n.p + "docugen/static/media/MFTS_logo.45d45e35f2b43d883f6b.png";
       },
       907: function (t, e, n) {
         "use strict";
@@ -35264,7 +35262,7 @@
                         "ACKRECEIPT" === t
                           ? u.text("ACKNOWLEDGEMENT RECEIPT", 70, g)
                           : "INV" === t
-                          ? u.text("INVOICE", 95, g)
+                          ? u.text("TAX INVOICE", 90, g)
                           : "QUOTE" === t
                           ? u.text("QUOTATION", 90, g)
                           : "SOA" === t
@@ -35677,4 +35675,4 @@
         f();
     })();
 })();
-//# sourceMappingURL=main.ff10ffc6.js.map
+//# sourceMappingURL=main.2d406ba4.js.map

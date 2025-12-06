@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rej Averion | Interactive Resume</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-deep: #0a0e27;
+        --bg-mid: #141b3d;
+        --accent-cyan: #00f5d4;
+        --accent-magenta: #f72585;
+        --accent-yellow: #fee440;
+        --accent-orange: #ff7b00;
+        --accent-blue: #4895ef;
+        --accent-purple: #7b2cbf;
+        --text-primary: #ffffff;
+        --text-secondary: #a8b2d1;
+        --card-bg: rgba(20, 27, 61, 0.7);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+        background: var(--bg-deep);
+        color: var(--text-primary);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      /* Animated Background */
+      .bg-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .bg-gradient {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            ellipse at 20% 20%,
+            rgba(123, 44, 191, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 80% 80%,
+            rgba(0, 245, 212, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 50% 50%,
+            rgba(247, 37, 133, 0.08) 0%,
+            transparent 60%
+          );
+      }
+
+      /* Floating Circuit Particles */
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: floatParticle 20s infinite ease-in-out;
+      }
+
+      @keyframes floatParticle {
+        0%,
+        100% {
+          transform: translateY(0) translateX(0);
+          opacity: 0.3;
+        }
+        25% {
+          transform: translateY(-30px) translateX(20px);
+          opacity: 0.6;
+        }
+        50% {
+          transform: translateY(-10px) translateX(-15px);
+          opacity: 0.4;
+        }
+        75% {
+          transform: translateY(-40px) translateX(10px);
+          opacity: 0.7;
+        }
+      }
+
+      /* Navigation */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.5rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        background: linear-gradient(to bottom, var(--bg-deep), transparent);
+      }
+
+      .nav-logo {
+        font-family: "Space Mono", monospace;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--accent-cyan);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .nav-logo svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-cyan);
+      }
+
+      .back-btn {
+        background: rgba(0, 245, 212, 0.1);
+        border: 1px solid var(--accent-cyan);
+        color: var(--accent-cyan);
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-family: "Space Mono", monospace;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .back-btn:hover {
+        background: var(--accent-cyan);
+        color: var(--bg-deep);
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6rem 2rem 4rem;
+        position: relative;
+      }
+
+      .hero-content {
+        max-width: 1200px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .hero-text {
+        animation: fadeInUp 1s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-label {
+        display: inline-block;
+        background: linear-gradient(
+          135deg,
+          var(--accent-magenta),
+          var(--accent-purple)
+        );
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-name {
+        font-size: clamp(3rem, 8vw, 5rem);
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--text-primary) 0%,
+          var(--accent-cyan) 50%,
+          var(--accent-blue) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-title {
+        font-size: 1.5rem;
+        color: var(--accent-yellow);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        max-width: 500px;
+        line-height: 1.8;
+      }
+
+      .hero-illustration {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeInUp 1s ease-out 0.3s backwards;
+      }
+
+      .chip-svg {
+        width: 100%;
+        max-width: 450px;
+        filter: drop-shadow(0 0 60px rgba(0, 245, 212, 0.3));
+      }
+
+      /* Scroll Indicator */
+      .scroll-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+      }
+
+      .scroll-indicator span {
+        font-size: 0.75rem;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .scroll-indicator svg {
+        width: 24px;
+        height: 24px;
+        color: var(--accent-cyan);
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 6rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .section-icon {
+        width: 60px;
+        height: 60px;
+        padding: 12px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .section-icon svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+      }
+
+      /* Skills Section */
+      .skills-section .section-icon {
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-blue)
+        );
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .skill-card {
+        background: var(--card-bg);
+        border-radius: 24px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skill-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--accent-cyan),
+          var(--accent-magenta)
+        );
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+
+      .skill-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .skill-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(0, 245, 212, 0.3);
+        box-shadow: 0 20px 60px rgba(0, 245, 212, 0.15);
+      }
+
+      .skill-card-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .skill-card-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .skill-card-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .skill-card-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .skill-tag {
+        background: rgba(0, 245, 212, 0.1);
+        color: var(--accent-cyan);
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid rgba(0, 245, 212, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .skill-tag:hover {
+        background: rgba(0, 245, 212, 0.2);
+        transform: scale(1.05);
+      }
+
+      /* Experience Section */
+      .experience-section .section-icon {
+        background: linear-gradient(
+          135deg,
+          var(--accent-magenta),
+          var(--accent-orange)
+        );
+      }
+
+      .timeline {
+        position: relative;
+        padding-left: 3rem;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(
+          to bottom,
+          var(--accent-magenta),
+          var(--accent-cyan),
+          var(--accent-yellow)
+        );
+        border-radius: 2px;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding: 2rem;
+        background: var(--card-bg);
+        border-radius: 24px;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        transition: all 0.4s ease;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -3rem;
+        top: 2.5rem;
+        width: 16px;
+        height: 16px;
+        background: var(--accent-cyan);
+        border-radius: 50%;
+        transform: translateX(-6.5px);
+        box-shadow: 0 0 20px var(--accent-cyan);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 20px var(--accent-cyan);
+        }
+        50% {
+          box-shadow: 0 0 40px var(--accent-cyan), 0 0 60px var(--accent-cyan);
+        }
+      }
+
+      .timeline-item:hover {
+        transform: translateX(10px);
+        border-color: rgba(0, 245, 212, 0.3);
+      }
+
+      .timeline-date {
+        display: inline-block;
+        background: linear-gradient(
+          135deg,
+          var(--accent-purple),
+          var(--accent-magenta)
+        );
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+      }
+
+      .timeline-company {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 0.3rem;
+      }
+
+      .timeline-role {
+        font-size: 1.1rem;
+        color: var(--accent-yellow);
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+
+      .timeline-location {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* Education Section */
+      .education-section .section-icon {
+        background: linear-gradient(
+          135deg,
+          var(--accent-yellow),
+          var(--accent-orange)
+        );
+      }
+
+      .education-card {
+        background: var(--card-bg);
+        border-radius: 24px;
+        padding: 3rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .education-card::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -30%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(254, 228, 64, 0.1),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .education-icon-wrapper {
+        width: 100px;
+        height: 100px;
+        min-width: 100px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--accent-yellow),
+          var(--accent-orange)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 40px rgba(254, 228, 64, 0.3);
+      }
+
+      .education-icon-wrapper svg {
+        width: 50px;
+        height: 50px;
+      }
+
+      .education-content h3 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+      }
+
+      .education-content p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+      }
+
+      .education-content .school {
+        color: var(--accent-cyan);
+        font-weight: 600;
+      }
+
+      /* Interactive Circuit Board */
+      .circuit-decoration {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        pointer-events: none;
+        opacity: 0.3;
+        z-index: -1;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 3rem 2rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .footer-links a {
+        color: var(--accent-cyan);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-magenta);
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 900px) {
+        .hero-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .hero-description {
+          margin: 0 auto;
+        }
+
+        .hero-illustration {
+          order: -1;
+        }
+
+        .chip-svg {
+          max-width: 300px;
+        }
+
+        .nav {
+          padding: 1rem;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .timeline {
+          padding-left: 2rem;
+        }
+
+        .education-card {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Animated Background Elements */
+      .floating-element {
+        position: absolute;
+        animation: float 6s ease-in-out infinite;
+        opacity: 0.1;
+        pointer-events: none;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+      }
+
+      /* Data flow animation on hover */
+      .data-flow {
+        stroke-dasharray: 10 5;
+        animation: flowData 1s linear infinite;
+      }
+
+      @keyframes flowData {
+        to {
+          stroke-dashoffset: -15;
+        }
+      }
+
+      /* Glowing effect for SVG elements */
+      .glow-cyan {
+        filter: drop-shadow(0 0 8px var(--accent-cyan));
+      }
+      .glow-magenta {
+        filter: drop-shadow(0 0 8px var(--accent-magenta));
+      }
+      .glow-yellow {
+        filter: drop-shadow(0 0 8px var(--accent-yellow));
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Animated Background -->
+    <div class="bg-container">
+      <div class="bg-gradient"></div>
+      <div id="particles"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 32 32" fill="none">
+          <rect
+            x="4"
+            y="8"
+            width="24"
+            height="16"
+            rx="2"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <line
+            x1="10"
+            y1="4"
+            x2="10"
+            y2="8"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <line
+            x1="16"
+            y1="4"
+            x2="16"
+            y2="8"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <line
+            x1="22"
+            y1="4"
+            x2="22"
+            y2="8"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <line
+            x1="10"
+            y1="24"
+            x2="10"
+            y2="28"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <line
+            x1="16"
+            y1="24"
+            x2="16"
+            y2="28"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <line
+            x1="22"
+            y1="24"
+            x2="22"
+            y2="28"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <circle cx="10" cy="16" r="2" fill="currentColor" />
+          <circle cx="22" cy="16" r="2" fill="currentColor" />
+        </svg>
+        REJ.DEV
+      </a>
+      <a href="index.html" class="back-btn">← Back Home</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="hero-label">Interactive Resume</span>
+          <h1 class="hero-name">Rej Averion</h1>
+          <h2 class="hero-title">Test & Verification Engineer</h2>
+          <p class="hero-description">
+            From silicon to software, I bridge the gap between hardware and
+            intelligence. With 7+ years in semiconductors and a fresh
+            perspective in Medical OEM, I design hardware, write code, debug the
+            impossible, and leverage AI to revolutionize testing workflows.
+          </p>
+        </div>
+        <div class="hero-illustration">
+          <!-- Animated Microchip SVG -->
+          <svg class="chip-svg" viewBox="0 0 400 400" fill="none">
+            <!-- Outer glow ring -->
+            <circle
+              cx="200"
+              cy="200"
+              r="180"
+              stroke="url(#glowGradient)"
+              stroke-width="1"
+              opacity="0.3"
+            />
+            <circle
+              cx="200"
+              cy="200"
+              r="160"
+              stroke="url(#glowGradient)"
+              stroke-width="0.5"
+              opacity="0.2"
+            />
+
+            <!-- Main chip body -->
+            <rect
+              x="100"
+              y="100"
+              width="200"
+              height="200"
+              rx="10"
+              fill="url(#chipGradient)"
+              stroke="#00f5d4"
+              stroke-width="2"
+            />
+
+            <!-- Inner die -->
+            <rect
+              x="130"
+              y="130"
+              width="140"
+              height="140"
+              rx="5"
+              fill="#0a0e27"
+              stroke="#4895ef"
+              stroke-width="1"
+            />
+
+            <!-- Circuit patterns inside -->
+            <g stroke="#00f5d4" stroke-width="1" opacity="0.6">
+              <path d="M150 170 L180 170 L180 200 L210 200" class="data-flow" />
+              <path d="M150 230 L190 230 L190 210 L220 210" class="data-flow" />
+              <path d="M250 170 L220 170 L220 190" class="data-flow" />
+              <path d="M250 230 L240 230 L240 200 L210 200" class="data-flow" />
+            </g>
+
+            <!-- Op-amp symbol -->
+            <g transform="translate(175, 175)" class="glow-cyan">
+              <polygon
+                points="0,0 50,25 0,50"
+                fill="none"
+                stroke="#00f5d4"
+                stroke-width="2"
+              />
+              <line
+                x1="-15"
+                y1="12"
+                x2="0"
+                y2="12"
+                stroke="#00f5d4"
+                stroke-width="2"
+              />
+              <line
+                x1="-15"
+                y1="38"
+                x2="0"
+                y2="38"
+                stroke="#00f5d4"
+                stroke-width="2"
+              />
+              <line
+                x1="50"
+                y1="25"
+                x2="65"
+                y2="25"
+                stroke="#00f5d4"
+                stroke-width="2"
+              />
+              <text x="-8" y="16" fill="#00f5d4" font-size="10">+</text>
+              <text x="-8" y="42" fill="#00f5d4" font-size="10">−</text>
+            </g>
+
+            <!-- Pins - Top -->
+            <g fill="#fee440">
+              <rect x="120" y="80" width="8" height="25" rx="2" />
+              <rect x="145" y="80" width="8" height="25" rx="2" />
+              <rect x="170" y="80" width="8" height="25" rx="2" />
+              <rect x="195" y="80" width="8" height="25" rx="2" />
+              <rect x="220" y="80" width="8" height="25" rx="2" />
+              <rect x="245" y="80" width="8" height="25" rx="2" />
+              <rect x="270" y="80" width="8" height="25" rx="2" />
+            </g>
+
+            <!-- Pins - Bottom -->
+            <g fill="#fee440">
+              <rect x="120" y="295" width="8" height="25" rx="2" />
+              <rect x="145" y="295" width="8" height="25" rx="2" />
+              <rect x="170" y="295" width="8" height="25" rx="2" />
+              <rect x="195" y="295" width="8" height="25" rx="2" />
+              <rect x="220" y="295" width="8" height="25" rx="2" />
+              <rect x="245" y="295" width="8" height="25" rx="2" />
+              <rect x="270" y="295" width="8" height="25" rx="2" />
+            </g>
+
+            <!-- Pins - Left -->
+            <g fill="#f72585">
+              <rect x="80" y="120" width="25" height="8" rx="2" />
+              <rect x="80" y="145" width="25" height="8" rx="2" />
+              <rect x="80" y="170" width="25" height="8" rx="2" />
+              <rect x="80" y="195" width="25" height="8" rx="2" />
+              <rect x="80" y="220" width="25" height="8" rx="2" />
+              <rect x="80" y="245" width="25" height="8" rx="2" />
+              <rect x="80" y="270" width="25" height="8" rx="2" />
+            </g>
+
+            <!-- Pins - Right -->
+            <g fill="#f72585">
+              <rect x="295" y="120" width="25" height="8" rx="2" />
+              <rect x="295" y="145" width="25" height="8" rx="2" />
+              <rect x="295" y="170" width="25" height="8" rx="2" />
+              <rect x="295" y="195" width="25" height="8" rx="2" />
+              <rect x="295" y="220" width="25" height="8" rx="2" />
+              <rect x="295" y="245" width="25" height="8" rx="2" />
+              <rect x="295" y="270" width="25" height="8" rx="2" />
+            </g>
+
+            <!-- Connection traces -->
+            <g stroke="#4895ef" stroke-width="1.5" fill="none" opacity="0.7">
+              <path d="M124 60 L124 80" />
+              <path d="M149 50 L149 80" />
+              <path d="M274 65 L274 80" />
+              <path d="M60 124 L80 124" />
+              <path d="M55 199 L80 199" />
+              <path d="M320 149 L340 149" />
+              <path d="M320 249 L350 249" />
+              <path d="M174 320 L174 345" />
+              <path d="M249 320 L249 340" />
+            </g>
+
+            <!-- Decorative corner elements -->
+            <g class="glow-magenta">
+              <circle cx="50" cy="50" r="8" fill="#f72585" opacity="0.8" />
+              <circle cx="350" cy="50" r="6" fill="#7b2cbf" opacity="0.8" />
+              <circle cx="50" cy="350" r="6" fill="#4895ef" opacity="0.8" />
+              <circle cx="350" cy="350" r="8" fill="#00f5d4" opacity="0.8" />
+            </g>
+
+            <!-- Flip-flop symbol (small) -->
+            <g transform="translate(320, 300)" class="glow-yellow">
+              <rect
+                x="0"
+                y="0"
+                width="40"
+                height="30"
+                fill="none"
+                stroke="#fee440"
+                stroke-width="1.5"
+                rx="3"
+              />
+              <text
+                x="8"
+                y="12"
+                fill="#fee440"
+                font-size="8"
+                font-family="monospace"
+              >
+                D
+              </text>
+              <text
+                x="8"
+                y="24"
+                fill="#fee440"
+                font-size="8"
+                font-family="monospace"
+              >
+                CLK
+              </text>
+              <text
+                x="28"
+                y="12"
+                fill="#fee440"
+                font-size="8"
+                font-family="monospace"
+              >
+                Q
+              </text>
+              <polygon points="4,20 8,23 4,26" fill="#fee440" />
+            </g>
+
+            <!-- Gradient definitions -->
+            <defs>
+              <linearGradient
+                id="chipGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop offset="0%" stop-color="#1a1f4e" />
+                <stop offset="100%" stop-color="#0d1230" />
+              </linearGradient>
+              <linearGradient
+                id="glowGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <stop offset="0%" stop-color="#00f5d4" />
+                <stop offset="50%" stop-color="#f72585" />
+                <stop offset="100%" stop-color="#4895ef" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills-section" id="skills">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+        </div>
+        <h2 class="section-title">Technical Arsenal</h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- ATE Card -->
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div
+              class="skill-card-icon"
+              style="background: linear-gradient(135deg, #00f5d4, #4895ef)"
+            >
+              <svg viewBox="0 0 24 24" fill="white">
+                <rect x="3" y="6" width="18" height="12" rx="2" />
+                <line
+                  x1="7"
+                  y1="2"
+                  x2="7"
+                  y2="6"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <line
+                  x1="12"
+                  y1="2"
+                  x2="12"
+                  y2="6"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <line
+                  x1="17"
+                  y1="2"
+                  x2="17"
+                  y2="6"
+                  stroke="white"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+            <h3 class="skill-card-title">ATE Platforms</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">SPEA DOT400</span>
+            <span class="skill-tag">ETS88</span>
+            <span class="skill-tag">LTX MX</span>
+            <span class="skill-tag">Advantest T2000</span>
+            <span class="skill-tag">Teradyne FLEX</span>
+          </div>
+        </div>
+
+        <!-- IC Test Development -->
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div
+              class="skill-card-icon"
+              style="background: linear-gradient(135deg, #f72585, #7b2cbf)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+              >
+                <path
+                  d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4"
+                />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+            <h3 class="skill-card-title">IC Test Development</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Analog</span>
+            <span class="skill-tag">Digital</span>
+            <span class="skill-tag">Mixed-Signal</span>
+            <span class="skill-tag">SerDes</span>
+            <span class="skill-tag">High-Speed Links</span>
+          </div>
+        </div>
+
+        <!-- Hardware Design -->
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div
+              class="skill-card-icon"
+              style="background: linear-gradient(135deg, #fee440, #ff7b00)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="M6 8h4v8H6z" />
+                <path d="M14 8h4v8h-4z" />
+                <line x1="10" y1="12" x2="14" y2="12" />
+              </svg>
+            </div>
+            <h3 class="skill-card-title">Hardware Design</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Altium Designer</span>
+            <span class="skill-tag">Cadence Allegro</span>
+            <span class="skill-tag">LTSpice</span>
+            <span class="skill-tag">PCB Layout</span>
+          </div>
+        </div>
+
+        <!-- Quality & Analysis -->
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div
+              class="skill-card-icon"
+              style="background: linear-gradient(135deg, #4895ef, #00f5d4)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+              >
+                <path d="M3 3v18h18" />
+                <path d="M18 17V9" />
+                <path d="M13 17V5" />
+                <path d="M8 17v-3" />
+              </svg>
+            </div>
+            <h3 class="skill-card-title">Quality & Analysis</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">SPC</span>
+            <span class="skill-tag">MSA</span>
+            <span class="skill-tag">Gage R&R</span>
+            <span class="skill-tag">Data Analysis</span>
+          </div>
+        </div>
+
+        <!-- Programming -->
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div
+              class="skill-card-icon"
+              style="background: linear-gradient(135deg, #7b2cbf, #f72585)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+              >
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </div>
+            <h3 class="skill-card-title">Programming</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">CAPL</span>
+            <span class="skill-tag">VBA</span>
+          </div>
+        </div>
+
+        <!-- Tools & Platforms -->
+        <div class="skill-card">
+          <div class="skill-card-header">
+            <div
+              class="skill-card-icon"
+              style="background: linear-gradient(135deg, #ff7b00, #fee440)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+              >
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                />
+              </svg>
+            </div>
+            <h3 class="skill-card-title">Tools & Platforms</h3>
+          </div>
+          <div class="skill-tags">
+            <span class="skill-tag">Vector CANoe</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">SVN</span>
+            <span class="skill-tag">JIRA</span>
+            <span class="skill-tag">Polarion</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience-section" id="experience">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <rect x="2" y="7" width="20" height="14" rx="2" />
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+          </svg>
+        </div>
+        <h2 class="section-title">Career Journey</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">Jun 2025 — Present</span>
+          <h3 class="timeline-company">T&S Engineering GmbH</h3>
+          <p class="timeline-role">Verification and Validation Consultant</p>
+          <p class="timeline-location">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Munich, Germany
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-date">Jul 2023 — May 2025</span>
+          <h3 class="timeline-company">Siltest Semiconductors GmbH</h3>
+          <p class="timeline-role">Field Test Engineer</p>
+          <p class="timeline-location">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Dortmund, Germany
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-date">Feb 2023 — Jun 2023</span>
+          <h3 class="timeline-company">Manila Finest Technical Services</h3>
+          <p class="timeline-role">Project Engineer (Multidisciplinary)</p>
+          <p class="timeline-location">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Dubai, UAE
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-date">Oct 2021 — Feb 2023</span>
+          <h3 class="timeline-company">Analog Devices Inc.</h3>
+          <p class="timeline-role">Senior Test Engineer</p>
+          <p class="timeline-location">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Cavite, Philippines
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-date">Feb 2018 — Oct 2021</span>
+          <h3 class="timeline-company">Maxim Integrated Inc.</h3>
+          <p class="timeline-role">Member of Technical Staff</p>
+          <p class="timeline-location">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Cavite, Philippines
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education-section" id="education">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+          </svg>
+        </div>
+        <h2 class="section-title">Education</h2>
+      </div>
+
+      <div class="education-card">
+        <div class="education-icon-wrapper">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#0a0e27"
+            stroke-width="2.5"
+          >
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+          </svg>
+        </div>
+        <div class="education-content">
+          <h3>B.S. Electronics and Communication Engineering</h3>
+          <p class="school">Emilio Aguinaldo College</p>
+          <p>Cavite, Philippines</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Circuit Board Decoration SVG -->
+    <svg
+      class="circuit-decoration"
+      viewBox="0 0 1200 200"
+      preserveAspectRatio="xMidYMax slice"
+    >
+      <g stroke="#00f5d4" stroke-width="1" fill="none" opacity="0.4">
+        <path d="M0 100 H100 V50 H200 V100 H300 V150 H400 V100 H500" />
+        <path
+          d="M500 100 H600 V50 H700 V100 H800 V150 H900 V100 H1000 V50 H1100 V100 H1200"
+        />
+        <path d="M150 0 V50" />
+        <path d="M350 200 V150" />
+        <path d="M550 0 V50 H650 V0" />
+        <path d="M850 200 V150" />
+        <path d="M1050 0 V50" />
+        <circle cx="100" cy="100" r="5" fill="#00f5d4" />
+        <circle cx="300" cy="150" r="5" fill="#f72585" />
+        <circle cx="500" cy="100" r="5" fill="#fee440" />
+        <circle cx="700" cy="100" r="5" fill="#00f5d4" />
+        <circle cx="900" cy="150" r="5" fill="#f72585" />
+        <circle cx="1100" cy="100" r="5" fill="#fee440" />
+      </g>
+    </svg>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="textcryptor.html">TextCryptor</a>
+      </div>
+      <p>Designed with electrons and passion • Rej Averion © 2025</p>
+    </footer>
+
+    <script>
+      // Create floating particles
+      function createParticles() {
+        const container = document.getElementById("particles");
+        const colors = ["#00f5d4", "#f72585", "#fee440", "#4895ef", "#7b2cbf"];
+
+        for (let i = 0; i < 30; i++) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.top = Math.random() * 100 + "%";
+          particle.style.width = Math.random() * 6 + 2 + "px";
+          particle.style.height = particle.style.width;
+          particle.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+          particle.style.animationDelay = Math.random() * 20 + "s";
+          particle.style.animationDuration = Math.random() * 15 + 15 + "s";
+          container.appendChild(particle);
+        }
+      }
+
+      // Intersection Observer for scroll animations
+      function initScrollAnimations() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        document
+          .querySelectorAll(".skill-card, .timeline-item, .education-card")
+          .forEach((el) => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(30px)";
+            el.style.transition = "all 0.6s ease-out";
+            observer.observe(el);
+          });
+      }
+
+      // Add staggered animation delays
+      function addStaggeredDelays() {
+        document.querySelectorAll(".skill-card").forEach((card, i) => {
+          card.style.transitionDelay = i * 0.1 + "s";
+        });
+        document.querySelectorAll(".timeline-item").forEach((item, i) => {
+          item.style.transitionDelay = i * 0.15 + "s";
+        });
+      }
+
+      // Initialize
+      document.addEventListener("DOMContentLoaded", () => {
+        createParticles();
+        initScrollAnimations();
+        addStaggeredDelays();
+      });
+    </script>
+  </body>
+</html>

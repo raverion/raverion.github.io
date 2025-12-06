@@ -1,0 +1,27 @@
+Name: Rej Averion
+Heading: Test and Verification Engineer
+
+What I do for a living: I worked in semiconductors as a post-silicon test engineer for 7 years and recently made the move to Medical OEM as verification engineer. I write code, design hardware, debug problems, and use AI effectively in my workflow in order to develop and optimize testing and verification.
+
+Skills:
+
+-ATE (Automatic Test Equipment): SPEA DOT400, ETS88, LTX MX, Advantest T2000, Teradyne FLEX
+-Analog, Digital, and Mixed-signal IC test development
+-Hardware development (Altium, Cadence Allegro)
+-High-speed (SerDes, serial link) design
+-Statistical Process Control, Measurement System Analysis, Gage R&R
+-C++, Python, CAPL, JS, VBA
+-Vector CANoe, LTSpice
+-Git, SVN, JIRA, Polarion
+
+My career so far:
+
+T&S Engineering GmbH - Munich, Germany - Verification and Validation Consultant - June 2025 to present;
+Siltest Semiconducs GmbH - Dortmund, Germany - Field Test Engineer - July 2023 to May 2025;
+Manila Finest Technical Services - Dubai, UAE - Project Engineer who wore many hats - February 2023 to June 2023;
+Analog Devices Inc. - Cavite, Philippines - Senior Test Engineer - October 2021 to February 2023
+Maxim Integrated Inc. - Cavite, Philippines - Member of Technica Staff - February 2018 to October 2021
+
+My education:
+
+I have a bachelor's degree in Electronics and Communication Engineering from Emilio Aguinaldo College in Cavite, Philippines.

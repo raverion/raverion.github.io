@@ -1,6 +1,308 @@
-body {
-  background-color: black;
+/* ============================================
+   THEME TOGGLE BUTTON
+   ============================================ */
+.theme-toggle {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 1000;
+  background: transparent;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--toggle-color);
 }
+
+.theme-toggle:hover {
+  transform: rotate(180deg) scale(1.1);
+  background: var(--toggle-hover-bg);
+  border-color: var(--toggle-hover-border);
+}
+
+.toggle-icon {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* ============================================
+     SOFTWARE THEME (Original Dark Theme)
+     ============================================ */
+body[data-theme="software"] {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --border-color: rgba(120, 120, 120, 0.4);
+  --divider-color: #ffffff;
+  --hover-1: cyan;
+  --hover-2: yellow;
+  --hover-3: lime;
+  --toggle-color: #ffffff;
+  --toggle-hover-bg: rgba(255, 255, 255, 0.1);
+  --toggle-hover-border: #00ffff;
+  --name-font: "Arial", monospace;
+  --link-font: "Source Code Pro", monospace;
+}
+
+body[data-theme="software"] {
+  background-color: var(--bg-color);
+}
+
+body[data-theme="software"] .parent-div {
+  background-color: var(--bg-color);
+}
+
+body[data-theme="software"] .name {
+  color: var(--text-color);
+  font-family: var(--name-font);
+  font-size: 72px;
+  text-align: right;
+}
+
+body[data-theme="software"] .text1,
+body[data-theme="software"] .text2,
+body[data-theme="software"] .text3 {
+  color: var(--text-color);
+  font-family: var(--link-font);
+  font-size: 48px;
+  background: transparent;
+}
+
+body[data-theme="software"] .text1:hover {
+  background-color: var(--hover-1);
+  color: black;
+}
+
+body[data-theme="software"] .text2:hover {
+  background-color: var(--hover-2);
+  color: black;
+}
+
+body[data-theme="software"] .text3:hover {
+  background-color: var(--hover-3);
+  color: black;
+}
+
+body[data-theme="software"] .vertical-line {
+  border-color: var(--divider-color);
+  background-color: var(--divider-color);
+}
+
+/* ============================================
+     HARDWARE THEME (Electronics/PCB Inspired)
+     ============================================ */
+body[data-theme="hardware"] {
+  --bg-color: #f8f6f3;
+  --bg-gradient-start: #faf9f7;
+  --bg-gradient-end: #f0ede8;
+  --text-color: #1a1614;
+  --text-secondary: #5a5550;
+  --accent-copper: #d4784f;
+  --accent-gold: #c89b3f;
+  --accent-green: #4a7c59;
+  --circuit-color: rgba(212, 120, 79, 0.15);
+  --shadow-sm: 0 2px 8px rgba(26, 22, 20, 0.08);
+  --shadow-md: 0 4px 16px rgba(26, 22, 20, 0.12);
+  --shadow-lg: 0 8px 32px rgba(26, 22, 20, 0.16);
+  --toggle-color: #d4784f;
+  --toggle-hover-bg: rgba(212, 120, 79, 0.1);
+  --toggle-hover-border: #d4784f;
+}
+
+body[data-theme="hardware"] {
+  background: linear-gradient(
+    135deg,
+    var(--bg-gradient-start) 0%,
+    var(--bg-gradient-end) 100%
+  );
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Circuit board pattern background */
+body[data-theme="hardware"]::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      var(--circuit-color) 2px,
+      var(--circuit-color) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      var(--circuit-color) 2px,
+      var(--circuit-color) 3px
+    );
+  background-size: 60px 60px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body[data-theme="hardware"] .parent-div {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+body[data-theme="hardware"] .leftwing,
+body[data-theme="hardware"] .rightwing {
+  border-style: none;
+}
+
+body[data-theme="hardware"] .name {
+  color: var(--text-color);
+  font-family: "Syne", sans-serif;
+  font-size: 84px;
+  font-weight: 800;
+  text-align: right;
+  letter-spacing: -2px;
+  position: relative;
+  text-shadow: 2px 2px 0px rgba(212, 120, 79, 0.1);
+  animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+body[data-theme="hardware"] .rightwing-subcontainer {
+  gap: 0;
+}
+
+body[data-theme="hardware"] .text1-container,
+body[data-theme="hardware"] .text2-container,
+body[data-theme="hardware"] .text3-container {
+  border-style: none;
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  animation-fill-mode: both;
+}
+
+body[data-theme="hardware"] .text1-container {
+  animation-delay: 0.1s;
+}
+
+body[data-theme="hardware"] .text2-container {
+  animation-delay: 0.2s;
+}
+
+body[data-theme="hardware"] .text3-container {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body[data-theme="hardware"] .text1,
+body[data-theme="hardware"] .text2,
+body[data-theme="hardware"] .text3 {
+  color: var(--text-color);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 36px;
+  font-weight: 500;
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid rgba(26, 22, 20, 0.08);
+  padding: 24px 32px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+body[data-theme="hardware"] .text1::before,
+body[data-theme="hardware"] .text2::before,
+body[data-theme="hardware"] .text3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--accent-copper);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body[data-theme="hardware"] .text2::before {
+  background: var(--accent-gold);
+}
+
+body[data-theme="hardware"] .text3::before {
+  background: var(--accent-green);
+}
+
+body[data-theme="hardware"] .text1:hover,
+body[data-theme="hardware"] .text2:hover,
+body[data-theme="hardware"] .text3:hover {
+  transform: translateX(8px);
+  box-shadow: var(--shadow-lg);
+  border-color: currentColor;
+}
+
+body[data-theme="hardware"] .text1:hover {
+  color: var(--accent-copper);
+  background: rgba(212, 120, 79, 0.05);
+}
+
+body[data-theme="hardware"] .text2:hover {
+  color: var(--accent-gold);
+  background: rgba(200, 155, 63, 0.05);
+}
+
+body[data-theme="hardware"] .text3:hover {
+  color: var(--accent-green);
+  background: rgba(74, 124, 89, 0.05);
+}
+
+body[data-theme="hardware"] .text1:hover::before,
+body[data-theme="hardware"] .text2:hover::before,
+body[data-theme="hardware"] .text3:hover::before {
+  width: 100%;
+  opacity: 0.1;
+}
+
+/* Hide vertical line in hardware theme */
+body[data-theme="hardware"] .vertical-line {
+  display: none;
+}
+
+/* ============================================
+     BASE LAYOUT (Common to both themes)
+     ============================================ */
+body {
+  margin: 0;
+  padding: 0;
+  transition: background 0.5s ease;
+}
+
 .parent-div {
   width: 100%;
   display: flex;
@@ -8,8 +310,9 @@ body {
   min-height: 100vh;
   align-items: center;
   flex-direction: column;
-  background-color: #000000;
+  transition: background 0.5s ease;
 }
+
 .leftwing {
   top: 0px;
   left: 0px;
@@ -20,27 +323,26 @@ body {
   display: flex;
   position: absolute;
   align-items: flex-start;
-  border-color: rgba(120, 120, 120, 0.4);
+  border-color: var(--border-color, rgba(120, 120, 120, 0.4));
   border-style: hidden;
   border-width: 2px;
   flex-direction: column;
 }
+
 .name {
   top: 0px;
-  color: rgb(255, 255, 255);
   right: 0px;
   width: 500px;
   bottom: 0px;
   height: 96px;
   position: absolute;
-  font-size: 72px;
   margin-top: auto;
-  text-align: right;
   margin-left: auto;
   margin-right: 48px;
   margin-bottom: auto;
-  font-family: "Arial", monospace;
+  transition: all 0.5s ease;
 }
+
 .rightwing {
   top: 0px;
   right: 0px;
@@ -51,11 +353,12 @@ body {
   display: flex;
   position: absolute;
   align-items: flex-start;
-  border-color: rgba(120, 120, 120, 0.4);
+  border-color: var(--border-color, rgba(120, 120, 120, 0.4));
   border-style: hidden;
   border-width: 2px;
   flex-direction: column;
 }
+
 .rightwing-subcontainer {
   top: 0px;
   flex: 0 0 auto;
@@ -68,6 +371,7 @@ body {
   position: absolute;
   align-items: flex-start;
 }
+
 .text1-container {
   top: 0px;
   flex: 0 0 auto;
@@ -77,10 +381,11 @@ body {
   display: flex;
   position: absolute;
   align-items: flex-start;
-  border-color: rgba(120, 120, 120, 0.4);
+  border-color: var(--border-color, rgba(120, 120, 120, 0.4));
   border-style: hidden;
   border-width: 2px;
 }
+
 .text2-container {
   top: 0px;
   flex: 0 0 auto;
@@ -92,10 +397,11 @@ body {
   display: flex;
   position: absolute;
   align-items: flex-start;
-  border-color: rgba(120, 120, 120, 0.4);
+  border-color: var(--border-color, rgba(120, 120, 120, 0.4));
   border-style: hidden;
   border-width: 2px;
 }
+
 .text3-container {
   flex: 0 0 auto;
   left: 0px;
@@ -106,10 +412,21 @@ body {
   display: flex;
   position: absolute;
   align-items: flex-start;
-  border-color: rgba(120, 120, 120, 0.4);
+  border-color: var(--border-color, rgba(120, 120, 120, 0.4));
   border-style: hidden;
   border-width: 2px;
 }
+
+.text1-container a,
+.text2-container a,
+.text3-container a {
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .text1,
 .text2,
 .text3 {
@@ -118,26 +435,13 @@ body {
   left: 48px;
   padding-top: 10px;
   padding-left: 20px;
-  color: white;
   height: 72px;
   width: 360px;
   margin: auto;
   position: absolute;
-  font-size: 48px;
-  font-family: "Source Code Pro", monospace;
+  transition: all 0.3s ease;
 }
-.text1:hover {
-  background-color: cyan;
-  color: black;
-}
-.text2:hover {
-  background-color: yellow;
-  color: black;
-}
-.text3:hover {
-  background-color: lime;
-  color: black;
-}
+
 .vertical-line {
   top: 0px;
   left: 0px;
@@ -149,9 +453,48 @@ body {
   display: flex;
   position: absolute;
   align-items: flex-start;
-  border-color: #ffffff;
   border-style: solid;
   border-width: 1px;
   flex-direction: column;
-  background-color: white;
+  transition: all 0.5s ease;
+}
+
+/* ============================================
+     RESPONSIVE DESIGN
+     ============================================ */
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  body[data-theme="software"] .name {
+    font-size: 48px;
+    width: 90%;
+    margin-right: 20px;
+  }
+
+  body[data-theme="hardware"] .name {
+    font-size: 56px;
+    width: 90%;
+    margin-right: 20px;
+  }
+
+  .text1,
+  .text2,
+  .text3 {
+    font-size: 28px !important;
+    left: 20px;
+    width: 280px;
+  }
+
+  body[data-theme="hardware"] .text1,
+  body[data-theme="hardware"] .text2,
+  body[data-theme="hardware"] .text3 {
+    font-size: 24px !important;
+    padding: 16px 20px !important;
+  }
 }

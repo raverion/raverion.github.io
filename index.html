@@ -6,8 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rej Averion | Portfolio</title>
     <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <span class="toggle-icon">⚡</span>
+    </button>
+
     <div id="parent-div" class="parent-div">
       <div id="leftwing" class="leftwing">
         <span id="name" class="name"> Rej Averion </span>
@@ -37,5 +48,30 @@
       </div>
       <div id="vertical-line" class="vertical-line"></div>
     </div>
+
+    <script>
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+
+      // Check for saved theme preference or default to 'software'
+      const currentTheme = localStorage.getItem("theme") || "software";
+      body.setAttribute("data-theme", currentTheme);
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = body.getAttribute("data-theme");
+        const newTheme = currentTheme === "software" ? "hardware" : "software";
+
+        body.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+
+        // Update toggle icon
+        themeToggle.querySelector(".toggle-icon").textContent =
+          newTheme === "hardware" ? "💻" : "⚡";
+      });
+
+      // Set initial icon
+      themeToggle.querySelector(".toggle-icon").textContent =
+        currentTheme === "hardware" ? "💻" : "⚡";
+    </script>
   </body>
 </html>

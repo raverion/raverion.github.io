@@ -1296,12 +1296,28 @@
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="white"
-                stroke-width="2"
+                stroke-width="1.5"
               >
-                <path
-                  d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4"
-                />
-                <circle cx="12" cy="12" r="3" />
+                <!-- MOSFET Symbol -->
+                <!-- Gate line (left) -->
+                <line x1="3" y1="12" x2="7" y2="12" />
+                <!-- Gate vertical bar -->
+                <line x1="7" y1="6" x2="7" y2="18" />
+                <!-- Channel vertical bar -->
+                <line x1="10" y1="6" x2="10" y2="10" />
+                <line x1="10" y1="11" x2="10" y2="13" />
+                <line x1="10" y1="14" x2="10" y2="18" />
+                <!-- Drain (top) -->
+                <line x1="10" y1="8" x2="16" y2="8" />
+                <line x1="16" y1="3" x2="16" y2="8" />
+                <!-- Source (bottom) -->
+                <line x1="10" y1="16" x2="16" y2="16" />
+                <line x1="16" y1="16" x2="16" y2="21" />
+                <!-- Body connection -->
+                <line x1="10" y1="12" x2="16" y2="12" />
+                <line x1="16" y1="12" x2="16" y2="16" />
+                <!-- Arrow (N-channel) -->
+                <path d="M13 14l3-2-3-2" fill="none" />
               </svg>
             </div>
             <h3 class="skill-card-title">IC Test Development</h3>
@@ -1760,11 +1776,23 @@
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="white"
-                stroke-width="2"
+                stroke-width="1.5"
               >
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 17l10 5 10-5" />
-                <path d="M2 12l10 5 10-5" />
+                <!-- Drone / Quadcopter -->
+                <!-- Center body -->
+                <rect x="9" y="10" width="6" height="4" rx="1" />
+                <!-- Arms -->
+                <line x1="9" y1="11" x2="5" y2="7" />
+                <line x1="15" y1="11" x2="19" y2="7" />
+                <line x1="9" y1="13" x2="5" y2="17" />
+                <line x1="15" y1="13" x2="19" y2="17" />
+                <!-- Rotors (circles) -->
+                <circle cx="4" cy="6" r="2.5" />
+                <circle cx="20" cy="6" r="2.5" />
+                <circle cx="4" cy="18" r="2.5" />
+                <circle cx="20" cy="18" r="2.5" />
+                <!-- Camera -->
+                <circle cx="12" cy="15" r="1" fill="white" />
               </svg>
             </div>
             <div class="hobby-text">
@@ -1779,13 +1807,29 @@
             >
               <svg
                 viewBox="0 0 24 24"
-                fill="none"
+                fill="white"
                 stroke="white"
-                stroke-width="2"
+                stroke-width="0.5"
               >
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <path d="M9 9h.01M15 9h.01M9 15h.01M15 15h.01" />
-                <path d="M9 9L15 15M15 9L9 15" />
+                <!-- Chess Knight piece -->
+                <!-- Base -->
+                <path d="M6 22h12v-2H6v2z" />
+                <path d="M7 20h10v-1H7v1z" />
+                <!-- Body/neck -->
+                <path
+                  d="M8 19c0-2 1-4 2-6l1-3c-1-1-2-1-3-1v-1c0-1 1-2 2-2h1l1 1c1 0 2 1 2 2v1l-1 3c1 2 2 4 2 6H8z"
+                />
+                <!-- Ear -->
+                <path d="M11 6l-1-2 2-1v2l-1 1z" />
+                <!-- Eye -->
+                <circle cx="13" cy="8" r="0.8" fill="#ff7b00" />
+                <!-- Mane detail -->
+                <path
+                  d="M10 9c0 0 1 1 1 3"
+                  fill="none"
+                  stroke="#ff7b00"
+                  stroke-width="0.8"
+                />
               </svg>
             </div>
             <div class="hobby-text">

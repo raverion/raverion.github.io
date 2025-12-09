@@ -162,6 +162,31 @@
         height: 18px;
       }
 
+      .github-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(110, 84, 148, 0.2);
+        border: 1px solid #6e5494;
+        color: #a78bfa;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-family: "Space Mono", monospace;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .github-btn:hover {
+        background: #6e5494;
+        color: white;
+      }
+
+      .github-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+
       .back-btn {
         background: rgba(0, 245, 212, 0.1);
         border: 1px solid var(--accent-cyan);
@@ -989,12 +1014,7 @@
         <a
           href="https://github.com/raverion"
           target="_blank"
-          class="linkedin-btn"
-          style="
-            background: rgba(110, 84, 148, 0.2);
-            border-color: #6e5494;
-            color: #a78bfa;
-          "
+          class="github-btn"
         >
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path

@@ -368,51 +368,58 @@
         color: var(--bg-deep);
       }
 
-      .nav-center {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+      .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
       }
 
       .download-cv-btn {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        background: linear-gradient(135deg, var(--accent-secondary), var(--accent-senary));
-        border: none;
-        color: #ffffff;
-        padding: 0.6rem 1.2rem;
+        background: rgba(0, 245, 212, 0.1);
+        border: 1px solid var(--accent-primary);
+        color: var(--accent-primary);
+        padding: 0.5rem 1rem;
         border-radius: var(--radius-button);
         font-family: var(--font-mono);
         font-size: 0.85rem;
-        font-weight: 600;
         text-decoration: none;
         cursor: pointer;
         transition: all var(--transition-speed) var(--transition-timing);
-        box-shadow: 0 4px 15px rgba(247, 37, 133, 0.3);
       }
 
       [data-theme="light"] .download-cv-btn {
-        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-        box-shadow: 0 4px 15px rgba(193, 95, 60, 0.25);
+        background: rgba(193, 95, 60, 0.08);
       }
 
       .download-cv-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(247, 37, 133, 0.4);
-      }
-
-      [data-theme="light"] .download-cv-btn:hover {
-        box-shadow: 0 6px 20px rgba(193, 95, 60, 0.35);
+        background: var(--accent-primary);
+        color: var(--bg-deep);
       }
 
       .download-cv-btn svg {
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
+      }
+
+      .download-cv-tooltip {
+        opacity: 0;
+        margin-left: 0.75rem;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+        white-space: nowrap;
+        transition: opacity var(--transition-speed) var(--transition-timing);
+      }
+
+      .nav-left:hover .download-cv-tooltip {
+        opacity: 1;
       }
 
       @media (max-width: 768px) {
-        .nav-center {
+        .download-cv-tooltip {
           display: none;
         }
       }
@@ -1129,20 +1136,12 @@
 
     <!-- Navigation -->
     <nav class="nav">
-      <a href="index.html" class="nav-logo">
-        <svg viewBox="0 0 32 32" fill="none">
-          <rect x="4" y="8" width="24" height="16" rx="2" stroke="currentColor" stroke-width="2" />
-          <line x1="10" y1="4" x2="10" y2="8" stroke="currentColor" stroke-width="2" /><line x1="16" y1="4" x2="16" y2="8" stroke="currentColor" stroke-width="2" /><line x1="22" y1="4" x2="22" y2="8" stroke="currentColor" stroke-width="2" />
-          <line x1="10" y1="24" x2="10" y2="28" stroke="currentColor" stroke-width="2" /><line x1="16" y1="24" x2="16" y2="28" stroke="currentColor" stroke-width="2" /><line x1="22" y1="24" x2="22" y2="28" stroke="currentColor" stroke-width="2" />
-          <circle cx="10" cy="16" r="2" fill="currentColor" /><circle cx="22" cy="16" r="2" fill="currentColor" />
-        </svg>
-        REJ.DEV
-      </a>
-      <div class="nav-center">
+      <div class="nav-left">
         <a href="Rej_Averion_Resume.pdf" download class="download-cv-btn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span>Download CV as PDF</span>
+          <span>Download CV</span>
         </a>
+        <span class="download-cv-tooltip">ATS-friendly PDF version</span>
       </div>
       <div class="nav-right">
         <a href="https://github.com/raverion" target="_blank" class="github-btn">

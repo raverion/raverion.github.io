@@ -787,8 +787,9 @@
         opacity: 0;
       }
 
-      .timeline-item:hover .timeline-details {
-        max-height: 300px;
+      .timeline-item:hover .timeline-details,
+      .timeline-item.expanded .timeline-details {
+        max-height: 500px;
         margin-top: 1.5rem;
         opacity: 1;
       }
@@ -1435,11 +1436,22 @@
         document.querySelectorAll(".timeline-item").forEach((item, i) => { item.style.transitionDelay = i * 0.15 + "s"; });
       }
 
+      function initTimelineToggle() {
+        document.querySelectorAll(".timeline-item").forEach((item) => {
+          item.addEventListener("click", (e) => {
+            if (window.innerWidth <= 900) {
+              item.classList.toggle("expanded");
+            }
+          });
+        });
+      }
+
       document.addEventListener("DOMContentLoaded", () => {
         loadThemePreference();
         createParticles();
         initScrollAnimations();
         addStaggeredDelays();
+        initTimelineToggle();
       });
     </script>
   </body>

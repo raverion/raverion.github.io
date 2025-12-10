@@ -53,6 +53,14 @@
         --glow-filter: drop-shadow(0 0 60px rgba(0, 245, 212, 0.3));
         --card-shadow-hover: 0 20px 60px rgba(0, 245, 212, 0.15);
         --backdrop-blur: blur(10px);
+        /* Modern rounded styling */
+        --radius-card: 24px;
+        --radius-tag: 20px;
+        --radius-button: 25px;
+        --radius-icon: 12px;
+        --radius-timeline: 24px;
+        --transition-speed: 0.4s;
+        --transition-timing: ease;
       }
 
       /* Light Theme (Analog/Claude-inspired) */
@@ -93,8 +101,16 @@
         --font-display: 'Source Serif 4', Georgia, serif;
         --font-mono: 'IBM Plex Mono', monospace;
         --glow-filter: drop-shadow(0 4px 20px rgba(193, 95, 60, 0.15));
-        --card-shadow-hover: 0 12px 40px rgba(193, 95, 60, 0.12);
+        --card-shadow-hover: 0 8px 24px rgba(193, 95, 60, 0.12);
         --backdrop-blur: blur(8px);
+        /* Retro/less rounded styling */
+        --radius-card: 8px;
+        --radius-tag: 4px;
+        --radius-button: 6px;
+        --radius-icon: 6px;
+        --radius-timeline: 8px;
+        --transition-speed: 0.15s;
+        --transition-timing: ease-out;
       }
 
       * {
@@ -119,7 +135,7 @@
       /* Theme Toggle Button */
       .theme-toggle {
         position: fixed;
-        top: 1.5rem;
+        bottom: 1.5rem;
         right: 1.5rem;
         z-index: 1001;
         width: 52px;
@@ -151,14 +167,14 @@
         display: block;
         color: var(--accent-tertiary);
       }
-      [data-theme="dark"] .theme-toggle .icon-schematic {
+      [data-theme="dark"] .theme-toggle .icon-moon {
         display: none;
       }
 
       [data-theme="light"] .theme-toggle .icon-sun {
         display: none;
       }
-      [data-theme="light"] .theme-toggle .icon-schematic {
+      [data-theme="light"] .theme-toggle .icon-moon {
         display: block;
         color: var(--accent-primary);
       }
@@ -204,6 +220,8 @@
 
       [data-theme="light"] .particle {
         opacity: 0.4;
+        animation-duration: 12s !important;
+        animation-timing-function: linear !important;
       }
 
       @keyframes floatParticle {
@@ -272,11 +290,11 @@
         border: 1px solid #0077b5;
         color: #0077b5;
         padding: 0.5rem 1rem;
-        border-radius: 25px;
+        border-radius: var(--radius-button);
         font-family: var(--font-mono);
         font-size: 0.85rem;
         text-decoration: none;
-        transition: all 0.3s ease;
+        transition: all var(--transition-speed) var(--transition-timing);
       }
 
       [data-theme="light"] .linkedin-btn {
@@ -301,11 +319,11 @@
         border: 1px solid #6e5494;
         color: #a78bfa;
         padding: 0.5rem 1rem;
-        border-radius: 25px;
+        border-radius: var(--radius-button);
         font-family: var(--font-mono);
         font-size: 0.85rem;
         text-decoration: none;
-        transition: all 0.3s ease;
+        transition: all var(--transition-speed) var(--transition-timing);
       }
 
       [data-theme="light"] .github-btn {
@@ -333,11 +351,11 @@
         border: 1px solid var(--accent-primary);
         color: var(--accent-primary);
         padding: 0.5rem 1rem;
-        border-radius: 25px;
+        border-radius: var(--radius-button);
         font-family: var(--font-mono);
         font-size: 0.85rem;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all var(--transition-speed) var(--transition-timing);
         text-decoration: none;
       }
 
@@ -382,14 +400,14 @@
         display: inline-block;
         background: var(--hero-label-bg);
         padding: 0.4rem 1rem;
-        border-radius: 20px;
+        border-radius: var(--radius-tag);
         font-size: 0.8rem;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 2px;
         margin-bottom: 1.5rem;
         color: #ffffff;
-        transition: background 0.3s ease;
+        transition: background var(--transition-speed) var(--transition-timing);
       }
 
       .hero-name {
@@ -486,11 +504,11 @@
         width: 60px;
         height: 60px;
         padding: 12px;
-        border-radius: 16px;
+        border-radius: var(--radius-icon);
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: background 0.3s ease;
+        transition: background var(--transition-speed) var(--transition-timing);
       }
 
       .section-icon svg {
@@ -515,11 +533,11 @@
 
       .skill-card {
         background: var(--card-bg);
-        border-radius: 24px;
+        border-radius: var(--radius-card);
         padding: 2rem;
         border: 1px solid var(--card-border);
         backdrop-filter: var(--backdrop-blur);
-        transition: all 0.4s ease;
+        transition: all var(--transition-speed) var(--transition-timing);
         position: relative;
         overflow: hidden;
       }
@@ -534,7 +552,7 @@
         background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
         transform: scaleX(0);
         transform-origin: left;
-        transition: transform 0.4s ease;
+        transition: transform var(--transition-speed) var(--transition-timing);
       }
 
       .skill-card:hover::before {
@@ -557,7 +575,7 @@
       .skill-card-icon {
         width: 50px;
         height: 50px;
-        border-radius: 12px;
+        border-radius: var(--radius-icon);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -583,11 +601,11 @@
         background: var(--skill-tag-bg);
         color: var(--skill-tag-text);
         padding: 0.4rem 0.8rem;
-        border-radius: 20px;
+        border-radius: var(--radius-tag);
         font-size: 0.85rem;
         font-weight: 600;
         border: 1px solid var(--skill-tag-border);
-        transition: all 0.3s ease;
+        transition: all var(--transition-speed) var(--transition-timing);
       }
 
       .skill-tag:hover {
@@ -627,11 +645,11 @@
         position: relative;
         padding: 2rem;
         background: var(--card-bg);
-        border-radius: 24px;
+        border-radius: var(--radius-timeline);
         margin-bottom: 2rem;
         border: 1px solid var(--card-border);
         backdrop-filter: var(--backdrop-blur);
-        transition: all 0.4s ease;
+        transition: all var(--transition-speed) var(--transition-timing);
         cursor: pointer;
       }
 
@@ -673,7 +691,7 @@
         display: inline-block;
         background: var(--timeline-date-bg);
         padding: 0.3rem 0.8rem;
-        border-radius: 15px;
+        border-radius: var(--radius-tag);
         font-size: 0.8rem;
         font-weight: 700;
         margin-bottom: 0.8rem;
@@ -709,7 +727,7 @@
       .timeline-details {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.5s ease, margin-top 0.3s ease, opacity 0.3s ease;
+        transition: max-height var(--transition-speed) var(--transition-timing), margin-top var(--transition-speed) var(--transition-timing), opacity var(--transition-speed) var(--transition-timing);
         opacity: 0;
       }
 
@@ -759,7 +777,7 @@
 
       .education-card {
         background: var(--card-bg);
-        border-radius: 24px;
+        border-radius: var(--radius-card);
         padding: 3rem;
         border: 1px solid var(--card-border);
         backdrop-filter: var(--backdrop-blur);
@@ -829,7 +847,7 @@
 
       .about-card {
         background: var(--card-bg);
-        border-radius: 24px;
+        border-radius: var(--radius-card);
         padding: 3rem;
         border: 1px solid var(--card-border);
         backdrop-filter: var(--backdrop-blur);
@@ -891,9 +909,9 @@
         gap: 1rem;
         padding: 1rem;
         background: var(--hobby-bg);
-        border-radius: 16px;
+        border-radius: var(--radius-icon);
         border: 1px solid var(--hobby-border);
-        transition: all 0.3s ease;
+        transition: all var(--transition-speed) var(--transition-timing);
       }
 
       .hobby-item:hover {
@@ -911,7 +929,7 @@
       .hobby-icon {
         width: 50px;
         height: 50px;
-        border-radius: 12px;
+        border-radius: var(--radius-icon);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -970,7 +988,7 @@
       .footer-links a {
         color: var(--footer-link-color);
         text-decoration: none;
-        transition: color 0.3s ease;
+        transition: color var(--transition-speed) var(--transition-timing);
       }
 
       .footer-links a:hover {
@@ -996,7 +1014,7 @@
         .skills-grid { grid-template-columns: 1fr; }
         .hero { padding-bottom: 6rem; }
         .scroll-indicator { display: none; }
-        .theme-toggle { top: 1rem; right: 1rem; width: 44px; height: 44px; }
+        .theme-toggle { bottom: 1rem; right: 1rem; width: 44px; height: 44px; }
         .theme-toggle svg { width: 20px; height: 20px; }
       }
 
@@ -1029,11 +1047,8 @@
         <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
       </svg>
-      <svg class="icon-schematic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="3" y="8" width="7" height="8" rx="1"/>
-        <line x1="1" y1="12" x2="3" y2="12"/><line x1="10" y1="12" x2="14" y2="12"/>
-        <circle cx="17" cy="12" r="3"/>
-        <line x1="20" y1="12" x2="23" y2="12"/><line x1="17" y1="9" x2="17" y2="6"/><line x1="17" y1="15" x2="17" y2="18"/>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
       </svg>
     </button>
 
@@ -1094,7 +1109,7 @@
           <span class="hero-label">Resume / Profile</span>
           <h1 class="hero-name">Rej Averion</h1>
           <h2 class="hero-title">Test & Verification Engineer</h2>
-          <p class="hero-description">From silicon to software, I bridge the gap between hardware and intelligence. With 7+ years in automotive semiconductors and a fresh perspective in Medical OEM, I design hardware, write code, debug the impossible, and leverage AI to revolutionize testing workflows.</p>
+          <p class="hero-description">Testing anything from silicon to software, I bridge the gap between quality and profitability. With 7+ years in automotive semiconductors and a fresh perspective in Medical OEM, I design hardware, write code, debug test setups, and leverage AI in my workflow. A hands-on, forward-looking practitioner and a versatile technical generalist.</p>
         </div>
         <div class="hero-illustration">
           <svg class="chip-svg" viewBox="0 0 400 400" fill="none">
@@ -1184,7 +1199,7 @@
             <div class="skill-card-icon" style="background: var(--section-icon-about)"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg></div>
             <h3 class="skill-card-title">Programming</h3>
           </div>
-          <div class="skill-tags"><span class="skill-tag">C++</span><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">CAPL</span><span class="skill-tag">VBA</span></div>
+          <div class="skill-tags"><span class="skill-tag">C++</span><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">CAPL</span><span class="skill-tag">VBA</span><span class="skill-tag">SQL</span><span class="skill-tag">Linux</span></div>
         </div>
         <div class="skill-card">
           <div class="skill-card-header">
@@ -1262,7 +1277,7 @@
       <div class="about-card">
         <div class="about-text">
           <h3>A Little About Me</h3>
-          <p>Servus. Moin. Guten Tag! I'm a Filipino engineer who made the leap to Germany, bringing with me a love for problem-solving and a curiosity that extends beyond the lab. When I'm not debugging test setups or crunching measurement data, you'll find me exploring the world through different lenses, or having a Helles Bier with Weißwurst at an alpine lake.</p>
+          <p>Servus. Moin. Guten Tag! I'm a Filipino 🇵🇭 engineer who made the leap to Germany 🇩🇪, bringing with me a love for problem-solving and a curiosity that extends beyond the lab. When I'm not debugging test setups or crunching measurement data, you'll find me exploring the world through different lenses, or having a Helles Bier with Weißwurst at an alpine lake.</p>
           <p>Living in Germany has been an adventure in itself — from navigating the language to discovering the beauty of European landscapes. I believe that the best engineers are those who never stop learning, whether it's a new technlogical paradaigm or a new opening in chess.</p>
         </div>
         <div class="about-hobbies">
@@ -1303,7 +1318,7 @@
       <div class="footer-links">
         <a href="index.html">Home</a><a href="projects.html">Projects</a><a href="textcryptor.html">TextCryptor</a><a href="https://github.com/raverion" target="_blank">GitHub</a><a href="https://www.linkedin.com/in/rejaverion/" target="_blank">LinkedIn</a>
       </div>
-      <p>Designed with electrons and passion • Rej Averion © 2025</p>
+      <p>Open to work • Rej Averion © 2025</p>
     </footer>
 
     <script>

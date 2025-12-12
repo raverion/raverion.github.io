@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rej Averion | Test & Verification Engineer</title>
+    <title>Rej Averion</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link type="image/png" sizes="16x16" rel="icon" href="favicon1.png" />
     <style>
       * {
         margin: 0;
@@ -101,11 +102,63 @@
       .hero {
         min-height: 100vh;
         display: flex;
-        flex-direction: column;
+        align-items: center;
         justify-content: center;
         padding: 8rem 2rem 4rem;
-        max-width: 900px;
+        max-width: 1100px;
         margin: 0 auto;
+      }
+
+      .hero-content {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        width: 100%;
+      }
+
+      .hero-text {
+        flex: 1;
+      }
+
+      .hero-portrait {
+        flex-shrink: 0;
+      }
+
+      .portrait-container {
+        position: relative;
+        background: #ffffff;
+        padding: 12px 12px 48px 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08),
+          0 12px 24px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06);
+        transform: rotate(2deg);
+        transition: all 0.4s ease;
+      }
+
+      .portrait-container::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        pointer-events: none;
+      }
+
+      .portrait-container:hover {
+        transform: rotate(0deg) translateY(-4px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1),
+          0 20px 40px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      .portrait-img {
+        width: 240px;
+        height: 240px;
+        object-fit: cover;
+        display: block;
+        filter: contrast(1.02) saturate(0.95);
+        transition: all 0.4s ease;
+      }
+
+      .portrait-container:hover .portrait-img {
+        filter: contrast(1.05) saturate(1);
       }
 
       .hero-tagline {
@@ -170,7 +223,7 @@
         border-color: var(--text-muted);
       }
 
-/*       .scroll-indicator {
+      /*       .scroll-indicator {
         position: absolute;
         bottom: 2rem;
         left: 50%;
@@ -446,12 +499,32 @@
           padding: 6rem 1.5rem 4rem;
         }
 
+        .hero-content {
+          flex-direction: column-reverse;
+          gap: 2.5rem;
+          text-align: center;
+        }
+
+        .portrait-container {
+          padding: 10px 10px 40px 10px;
+          transform: rotate(1deg);
+        }
+
+        .portrait-img {
+          width: 180px;
+          height: 180px;
+        }
+
         .hero-tagline {
           font-size: 2rem;
         }
 
         .hero-description {
           font-size: 1.1rem;
+        }
+
+        .hero-links {
+          justify-content: center;
         }
 
         .projects {
@@ -533,7 +606,9 @@
       <div class="logo">rej.averion</div>
       <ul class="nav-links">
         <li><a href="#projects">Projects</a></li>
-        <li><a href="https://rejaverion.dev/textcryptor.html">TextCryptor</a></li>
+        <li>
+          <a href="https://rejaverion.dev/textcryptor.html">TextCryptor</a>
+        </li>
         <li><a href="#contact">Contact</a></li>
         <li>
           <a href="https://github.com/rejaverion" target="_blank">GitHub</a>
@@ -563,51 +638,62 @@
     <main>
       <!-- Hero Section -->
       <section class="hero">
-        <h1 class="hero-tagline">
-          Hi, I'm Rej.<br />
-          <span class="highlight">I'm not a software developer.</span>
-        </h1>
-        <p class="hero-description">
-          I'm an electronics engineer by trade. I debug and develop both hardware and software. Sometimes I even make
-          websites—clearly not my day job.
-        </p>
-        <div class="hero-links">
-          <a href="hireme" class="btn btn-primary">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-              ></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-            View Resume
-          </a>
-          <a href="#projects" class="btn btn-secondary">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-              <polyline points="2 17 12 22 22 17"></polyline>
-              <polyline points="2 12 12 17 22 12"></polyline>
-            </svg>
-            See Projects
-          </a>
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-tagline">
+              Hi, I'm Rej.<br />
+              <span class="highlight">I'm not a software developer.</span>
+            </h1>
+            <p class="hero-description">
+              I'm an electronics engineer by trade. I debug and develop both
+              hardware and software. Sometimes I even make websites—clearly not
+              my day job.
+            </p>
+            <div class="hero-links">
+              <a href="hireme" class="btn btn-primary">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  ></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                View Resume
+              </a>
+              <a href="#projects" class="btn btn-secondary">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                See Projects
+              </a>
+            </div>
+          </div>
+          <div class="hero-portrait">
+            <div class="portrait-container">
+              <!-- Replace 'portrait.svg' with your actual image file (e.g., portrait.jpg) -->
+              <img src="portrait.jpg" alt="Rej Averion" class="portrait-img" />
+            </div>
+          </div>
         </div>
-<!--         <div class="scroll-indicator">
+        <!--         <div class="scroll-indicator">
           <span>Scroll</span>
           <svg
             width="20"
@@ -633,7 +719,11 @@
         </div>
         <div class="projects-grid">
           <!-- Featured: Resume -->
-          <a href="hireme/index.html" class="project-card featured" target="_blank">
+          <a
+            href="hireme/index.html"
+            class="project-card featured"
+            target="_blank"
+          >
             <div class="project-icon">📄</div>
             <h3>Webpage Resume</h3>
             <p>
@@ -651,7 +741,8 @@
             <div class="project-icon">🔐</div>
             <h3>TextCryptor</h3>
             <p>
-              Encrypt and decrypt ASCII files with a simple key. I use this to manage my passwords and sensitive personal info.
+              Encrypt and decrypt ASCII files with a simple key. I use this to
+              manage my passwords and sensitive personal info.
             </p>
             <div class="project-tags">
               <span class="tag">JavaScript</span>
@@ -664,8 +755,10 @@
             <div class="project-icon">📝</div>
             <h3>Document Generator</h3>
             <p>
-              Documents go BRRRR. Template-based document generation for logistical, financial, and administrative files.
-              Developed for my previous role in Dubai, thanks to this I did not have to bother with cumbersome DOC or EXCEL templates.
+              Documents go BRRRR. Template-based document generation for
+              logistical, financial, and administrative files. Developed for my
+              previous role in Dubai, thanks to this I did not have to bother
+              with cumbersome DOC or EXCEL templates.
             </p>
             <div class="project-tags">
               <span class="tag">JavaScript</span>
@@ -674,12 +767,16 @@
           </a>
 
           <!-- To-Do List App -->
-          <a href="react-app/projects.html" class="project-card" target="_blank">
+          <a
+            href="react-app/projects.html"
+            class="project-card"
+            target="_blank"
+          >
             <div class="project-icon">✅</div>
             <h3>To-Do List App</h3>
             <p>
-              The React equivalent of Hello World. Yes, I know there are a million of
-              these. This one is mine.
+              The React equivalent of Hello World. Yes, I know there are a
+              million of these. This one is mine.
             </p>
             <div class="project-tags">
               <span class="tag">React</span>
@@ -695,9 +792,7 @@
           >
             <div class="project-icon">🔧</div>
             <h3>ATE Test Program Semantic Mapping</h3>
-            <p>
-              I signed an NDA.
-            </p>
+            <p>I signed an NDA.</p>
             <div class="project-tags">
               <span class="tag">LLM</span>
               <span class="tag">Commercial Tool</span>
@@ -713,8 +808,11 @@
             <div class="project-icon">⚡</div>
             <h3>Calibration Analyzer</h3>
             <p>
-              Generates visual reports from calibration measurement data, identifying outliers, drift and anomalies. Without giving you aneurism.
-              Lives rent-free in <span class="inline-link">Render</span>, with very limited bandwidth until I can afford a proper web service. 
+              Generates visual reports from calibration measurement data,
+              identifying outliers, drift and anomalies. Without giving you
+              aneurism. Lives rent-free in
+              <span class="inline-link">Render</span>, with very limited
+              bandwidth until I can afford a proper web service.
             </p>
             <div class="project-tags">
               <span class="tag">Python</span>
@@ -733,7 +831,8 @@
             <div class="project-icon">📊</div>
             <h3>STDF Visualizer</h3>
             <p>
-              A webtool for visualizing measurement distributions in high-volume analog mixed-signal STDF data. Still brewing, hidden for now.
+              A webtool for visualizing measurement distributions in high-volume
+              analog mixed-signal STDF data. Still brewing, hidden for now.
             </p>
             <div class="project-tags">
               <span class="tag">JavaScript</span>
@@ -742,7 +841,6 @@
               <span class="tag">Planned</span>
             </div>
           </a>
-
         </div>
       </section>
 
@@ -845,9 +943,7 @@
         <a href="https://rejaverion.dev/hireme">Resume</a>
         <!-- <a href="mailto:averionrej@gmail.com">Email</a> -->
       </div>
-      <p class="footer-copyright">
-        © 2025 Rej Averion.
-      </p>
+      <p class="footer-copyright">© 2025 Rej Averion.</p>
     </footer>
 
     <script>

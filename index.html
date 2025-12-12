@@ -170,7 +170,7 @@
         border-color: var(--text-muted);
       }
 
-      .scroll-indicator {
+/*       .scroll-indicator {
         position: absolute;
         bottom: 2rem;
         left: 50%;
@@ -182,7 +182,7 @@
         color: var(--text-muted);
         font-size: 0.8rem;
         animation: bounce 2s infinite;
-      }
+      } */
 
       @keyframes bounce {
         0%,
@@ -561,9 +561,7 @@
           <span class="highlight">I'm not a software developer.</span>
         </h1>
         <p class="hero-description">
-          I'm a Test & Verification Engineer with 7+ years in semiconductors and
-          medical OEM. I write code, design hardware, debug the impossible, and
-          teach machines how to test themselves. Sometimes I even make
+          I'm an electronics engineer by trade. I debug and develop both hardware and software. Sometimes I even make
           websites—clearly not my day job.
         </p>
         <div class="hero-links">
@@ -602,7 +600,7 @@
             See Projects
           </a>
         </div>
-        <div class="scroll-indicator">
+<!--         <div class="scroll-indicator">
           <span>Scroll</span>
           <svg
             width="20"
@@ -615,7 +613,7 @@
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <polyline points="19 12 12 19 5 12"></polyline>
           </svg>
-        </div>
+        </div> -->
       </section>
 
       <!-- Projects Section -->
@@ -628,9 +626,9 @@
         </div>
         <div class="projects-grid">
           <!-- Featured: Resume -->
-          <a href="hireme" class="project-card featured">
+          <a href="hireme/index.html" class="project-card featured">
             <div class="project-icon">📄</div>
-            <h3>Interactive Resume</h3>
+            <h3>Webpage Resume</h3>
             <p>
               My professional experience, skills, and career journey—presented
               in a way that won't put you to sleep. ATS-friendly PDF available
@@ -638,24 +636,6 @@
             </p>
             <div class="project-tags">
               <span class="tag">HTML/CSS/JS</span>
-              <span class="tag">Responsive</span>
-              <span class="tag">Dark/Light Themes</span>
-            </div>
-          </a>
-
-          <!-- STDF Visualizer -->
-          <a href="stdf_visualizer/stdf_visualizer.html" class="project-card">
-            <div class="project-icon">📊</div>
-            <h3>STDF Visualizer</h3>
-            <p>
-              A web-based tool for parsing and visualizing Standard Test Data
-              Format files. Because staring at hex dumps is nobody's idea of
-              fun.
-            </p>
-            <div class="project-tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">Data Viz</span>
-              <span class="tag">WIP</span>
             </div>
           </a>
 
@@ -664,8 +644,7 @@
             <div class="project-icon">🔐</div>
             <h3>TextCryptor</h3>
             <p>
-              Encrypt and decrypt ASCII text with a simple key. For when you
-              need to hide your snack drawer location from coworkers.
+              Encrypt and decrypt ASCII files with a simple key. I use this to manage my passwords and sensitive personal info.
             </p>
             <div class="project-tags">
               <span class="tag">JavaScript</span>
@@ -678,12 +657,12 @@
             <div class="project-icon">📝</div>
             <h3>Document Generator</h3>
             <p>
-              Template-based document generation for test specifications and
-              reports. Automate the boring stuff.
+              Documents go BRRRR. Template-based document generation for logistical, financial, and administrative files.
+              Developed for my previous role in Dubai, thanks to this I did not have to bother with cumbersome DOC or EXCEL templates.
             </p>
             <div class="project-tags">
               <span class="tag">JavaScript</span>
-              <span class="tag">Templates</span>
+              <!-- <span class="tag">Templates</span> -->
             </div>
           </a>
 
@@ -692,7 +671,7 @@
             <div class="project-icon">✅</div>
             <h3>To-Do List App</h3>
             <p>
-              A React-based task manager. Yes, I know there are a million of
+              The React equivalent of Hello World. Yes, I know there are a million of
               these. This one is mine.
             </p>
             <div class="project-tags">
@@ -708,10 +687,9 @@
             onclick="alert('Coming soon!'); return false;"
           >
             <div class="project-icon">🔧</div>
-            <h3>ATE Test Pattern Optimizer</h3>
+            <h3>ATE Test Program Semantic Mapping</h3>
             <p>
-              Machine learning-based optimization for test pattern generation.
-              Still brewing in my head.
+              I signed an NDA.
             </p>
             <div class="project-tags">
               <span class="tag">Python</span>
@@ -727,17 +705,33 @@
             onclick="alert('Coming soon!'); return false;"
           >
             <div class="project-icon">⚡</div>
-            <h3>Signal Integrity Toolkit</h3>
+            <h3>Calibration Analyzer</h3>
             <p>
-              Web-based calculators for impedance matching, S-parameters, and
-              eye diagram analysis.
+              Generates visual reports from calibration measurement data, identifying outliers, drift and anomalies. Without giving you aneurism.
+              Lives rent-free in Render with very limited bandwidth until I can afford a proper web service. 
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </a>
+
+          <!-- STDF Visualizer -->
+          <a href="stdf_visualizer/stdf_visualizer.html" class="project-card">
+            <div class="project-icon">📊</div>
+            <h3>STDF Visualizer</h3>
+            <p>
+              A webtool for visualizing measurement distributions in high-volume analog mixed-signal STDF data. Still brewing, hidden for now.
             </p>
             <div class="project-tags">
               <span class="tag">JavaScript</span>
-              <span class="tag">RF/SI</span>
+              <span class="tag">Python</span>
+              <span class="tag">STDF</span>
               <span class="tag">Planned</span>
             </div>
           </a>
+
         </div>
       </section>
 
@@ -837,10 +831,11 @@
         <a href="https://linkedin.com/in/rejaverion" target="_blank"
           >LinkedIn</a
         >
-        <a href="mailto:rej@averion.dev">Email</a>
+        <a href="https://rejaverion.dev/hireme">Resume</a>
+        <!-- <a href="mailto:averionrej@gmail.com">Email</a> -->
       </div>
       <p class="footer-copyright">
-        © 2025 Rej Averion. Built with caffeine and questionable CSS decisions.
+        © 2025 Rej Averion.
       </p>
     </footer>
 
